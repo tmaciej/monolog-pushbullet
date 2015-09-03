@@ -1,0 +1,22 @@
+{
+    "name": "tmaciej/monolog-pushbullet",
+    "description": "Sends monolog notifications through the https://www.pushbullet.com/ API.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Maciej Trojan",
+            "email": "trojanmaciek@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.0",
+        "guzzlehttp/guzzle": "~6.0",
+        "monolog/monolog": "^1.17"
+    },
+    "autoload": {
+        "psr-0": {
+            "tmaciej/Monolog": "src/"
+        }
+    }
+}
