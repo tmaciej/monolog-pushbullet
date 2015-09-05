@@ -32,9 +32,8 @@ class PushbulletHandler extends AbstractProcessingHandler
         parent::__construct($level, $buble);
     }
 
-    public function write(array $record) {
-        var_dump($record);
-
+    public function write(array $record)
+    {
         $this->guzzle->post('pushes', array(
             'headers' => $this->headers,
             'json' => array('type' => 'note', 'title' => $_SERVER['HTTP_HOST'], 'body' => $record['message'])
