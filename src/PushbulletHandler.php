@@ -1,4 +1,4 @@
-<?php namespace tmaciej\Monolog\PushbulletHandler;
+<?php namespace tmaciej\Monolog;
 
 use Monolog\Logger;
 use Monolog\Handler\AbstractProcessingHandler;
