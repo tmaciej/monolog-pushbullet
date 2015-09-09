@@ -1,5 +1,6 @@
 {
     "name": "tmaciej/monolog-pushbullet",
+    "version": "1.0.0-alpha",
     "description": "Sends monolog notifications through the https://www.pushbullet.com/ API.",
     "license": "MIT",
     "authors": [
