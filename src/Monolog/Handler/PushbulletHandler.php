@@ -81,7 +81,7 @@ class PushbulletHandler extends AbstractProcessingHandler
     {
         $payload = array('type' => 'note', 'title' => $title, 'body' => $body);
 
-        if ($device !== null) {
+        if ($deviceIden !== null) {
             $payload['device_iden'] = $deviceIden;
         }
 
