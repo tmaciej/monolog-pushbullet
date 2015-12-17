@@ -14,7 +14,7 @@ class PushbulletHandler extends AbstractProcessingHandler
     protected $guzzle;
 
     protected $apiUrl = 'https://api.pushbullet.com/v2/';
-    
+
     protected $deviceIden;
 
     public function __construct($accessToken = null, $level = Logger::DEBUG, $bubble = true, $deviceIden = null)
@@ -22,6 +22,7 @@ class PushbulletHandler extends AbstractProcessingHandler
         if ($accessToken === null) {
             throw new Exception('You need to specify Pushbullet access token.');
         }
+
         if ($deviceIden !== null) {
             $this->deviceIden = $deviceIden;
         }
@@ -37,15 +38,15 @@ class PushbulletHandler extends AbstractProcessingHandler
 
     public function write(array $record)
     {
+        $payload = array('type' => 'note', 'title' => $_SERVER['HTTP_HOST'], 'body' => $record['message']);
+
         if ($this->deviceIden !== null) {
-            $json = array('type' => 'note', 'title' => $_SERVER['HTTP_HOST'], 'body' => $record['message'], 'device_iden' => $this->deviceIden);
-        } else {
-            $json = array('type' => 'note', 'title' => $_SERVER['HTTP_HOST'], 'body' => $record['message']);
+            $payload['device_iden'] = $this->device_iden;
         }
-        
+
         $this->guzzle->post('pushes', array(
             'headers' => $this->headers,
-            'json' => $json
+            'json' => $payload
         ));
     }
 }
